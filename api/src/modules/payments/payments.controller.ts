@@ -1,24 +1,7 @@
-import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
-import {
-  ApiBadRequestResponse,
-  ApiBearerAuth,
-  ApiCreatedResponse,
-  ApiNotFoundResponse,
-  ApiOkResponse,
-  ApiOperation,
-  ApiParam,
-  ApiResponse,
-  ApiTags,
-} from '@nestjs/swagger';
+import { Controller, UseGuards } from '@nestjs/common';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { JwtAuthGuard } from 'src/common/guards/jwt-auth.guard';
-import { PaymentsService } from './payments.service';
-import { CreatePaymentIntentDto } from './dto/create-payment-intent.dto';
-import { GetUser } from 'src/common/decorators/get-user.decorator';
-import {
-  CreatePaymentIntentApiResponseDto,
-  PaymentApiResponseDto,
-} from './dto/payment-response.dto';
-import { ConfirmPaymentDto } from './dto/confirm-payment.dto';
+// Controller currently has its handlers commented out; keep only used imports above
 
 @Controller('payments')
 @UseGuards(JwtAuthGuard)
@@ -26,7 +9,6 @@ import { ConfirmPaymentDto } from './dto/confirm-payment.dto';
 @ApiBearerAuth('JWT-auth')
 export class PaymentsController {
   // constructor(private readonly paymentsService: PaymentsService) {}
-
   // @Post('create-intent')
   // @ApiOperation({
   //   summary: 'create payment intent',
@@ -48,7 +30,6 @@ export class PaymentsController {
   //     createPaymentIntentDto,
   //   );
   // }
-
   // @Post('confirm')
   // @ApiOperation({
   //   summary: 'Confirm payment',
@@ -68,7 +49,6 @@ export class PaymentsController {
   // ) {
   //   return await this.paymentsService.confirmPayment(userId, confirmPaymentDto);
   // }
-
   // @Get()
   // @ApiOperation({
   //   summary: 'Get all payments',
@@ -81,7 +61,6 @@ export class PaymentsController {
   // async findAll(@GetUser('id') userId: string) {
   //   return await this.paymentsService.findAll(userId);
   // }
-
   // @Get(':id')
   // @ApiParam({
   //   name: 'id',
@@ -102,7 +81,6 @@ export class PaymentsController {
   // async findOne(@Param('id') id: string, @GetUser('id') userId: string) {
   //   return await this.paymentsService.findOne(id, userId);
   // }
-
   // // Get payment by order ID
   // @Get('order/:orderId')
   // @ApiParam({
