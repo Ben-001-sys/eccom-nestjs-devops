@@ -49,7 +49,7 @@ jobs:
       contents: read
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4 
 
       # Login to AWS via OIDC instead of using AWS secrets access key that is dangerous
       - name: Configure AWS OIDC
